@@ -1,6 +1,6 @@
 <script setup>
 import { Head, Link, router } from '@inertiajs/vue3';
-import axios from 'axios'; // Asegúrate de tener axios instalado
+import axios from 'axios';
 import Navbar from '@/Components/NavBar.vue';
 
 const props = defineProps({
