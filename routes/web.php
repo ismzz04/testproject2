@@ -4,8 +4,21 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\TaskController;
+use App\Http\Controllers\ZapatosController;
+use App\Http\Controllers\CategoryController;
+use App\Models\Zapatos;
+use App\Models\Categories;
+
+Route::get('/', function () {
+    return Inertia::render('Welcome', [
+        'zapatos' => Zapatos::with('category')->get(),
+        'categories' => Categories::all(),
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -17,7 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('events', EventController::class);
-Route::resource('task', TaskController::class);
+Route::resource('zapatos', ZapatosController::class);   
+// ->middleware(['auth']);
+Route::resource('categories', CategoryController::class);
 
 require __DIR__.'/auth.php';
