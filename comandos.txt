@@ -19,5 +19,24 @@ php artisan make:seeder ProducteSeeder
 
 php artisan storage:link (link a public)
 
+(LARAVEL + SAIL)
+composer create-projecte laravel/laravel (nombre projecte) 
+
+cd (nombre projecte)
+
+php artisan sail:install
+
+./vendor/bin/sail up -d 
+
+npm run dev
+
+composer require laravel/breeze --dev
+
+php artisan breeze:install
+
+Vue + Inertia
+
+Eslint with Prettier
+
 
 
