@@ -1,0 +1,23 @@
+sail up -d
+sail npm run dev
+
+sail artisan migrate
+
+sail artisan migrate:fresh
+sail artisan db:seed
+
+sail mysql
+SHOW TABLES;
+
+php artisan make:model ejemplo -mcr (controlador,model y migration)
+
+php artisan make:model Categoria -m
+php artisan make:model Producte -m
+php artisan make:controller ProducteController
+php artisan make:seeder CategoriaSeeder
+php artisan make:seeder ProducteSeeder
+
+php artisan storage:link (link a public)
+
+
+

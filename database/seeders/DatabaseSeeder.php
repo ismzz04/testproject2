@@ -19,5 +19,9 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        $this->call([ // Cridem els seeders
+            CategoriaSeeder::class,
+        ]);        
     }
 }
